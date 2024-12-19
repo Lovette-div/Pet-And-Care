@@ -17,6 +17,15 @@
                         <li class="nav-item">
                             <a class="nav-link" href="manage_adoptions.php">Manage Adoptions</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="manage_tips.php">Manage Tips</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="pet_listing.php">Browse Pets</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="care_tips.php">Pet Care Tips</a>
+                        </li>
                     <?php elseif ($_SESSION['role'] == 'user'): ?>
                         <li class="nav-item">
                             <a class="nav-link" href="dashboard.php">My Dashboard</a>
@@ -25,9 +34,12 @@
                             <a class="nav-link" href="pet_listing.php">Browse Pets</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="pet_care_tips.php">Pet Care Tips</a>
+                            <a class="nav-link" href="care_tips.php">Pet Care Tips</a>
                         </li>
                     <?php endif; ?>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.php">About</a>
+                    </li>
                     <li class="nav-item">
                         <a class="nav-link" href="logout.php">Logout</a>
                     </li>

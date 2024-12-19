@@ -5,6 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
     <title>Manage Adoption Requests</title>
+    <style>
+        body {
+            background-color: var(--bs-primary-bg-subtle);
+        }
+    </style>
 </head>
 <body>
     <?php
@@ -43,8 +48,8 @@
                     <td><?php echo htmlspecialchars($application['message']); ?></td>
                     <td><?php echo htmlspecialchars($application['application_status']); ?></td>
                     <td>
-                        <a href="actions/approve_application.php?id=<?php echo $application['application_id']; ?>" class="btn btn-success btn-sm">Approve</a>
-                        <a href="actions/reject_application.php?id=<?php echo $application['application_id']; ?>" class="btn btn-danger btn-sm">Reject</a>
+                    <button class="btn btn-success btn-sm approve-button" data-application-id="<?= $application['application_id']; ?>">Approve</button>
+                    <button class="btn btn-danger btn-sm reject-button" data-application-id="<?= $application['application_id']; ?>">Reject</button>
                     </td>
                 </tr>
                 <?php endwhile; ?>
@@ -53,6 +58,54 @@
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+    function updateApplicationStatus(applicationId, status) {
+    //an AJAX request to update the application status
+    fetch('../actions/adoption_backend.php', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ application_id: applicationId, status: status })
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            alert(data.message);
+            // Hide the row dynamically
+            const row = document.querySelector(`tr[data-application-id="${applicationId}"]`);
+            if (row) {
+                row.style.transition = 'opacity 0.3s ease'; // Add a fade-out effect
+                row.style.opacity = '0'; // Set opacity to 0 to fade out
+                setTimeout(() => row.remove(), 300); // Remove row after fade-out
+            } else {
+                console.error("Row not found for application ID:", applicationId);
+            }
+        } else {
+            alert("Failed to update status: " + data.message);
+        }
+    })
+    .catch(error => {
+        console.error("Error updating application status:", error);
+        alert("An error occurred. Please try again.");
+    });
+}
 
+// Attach event listeners to Approve and Reject buttons
+document.querySelectorAll('.approve-button').forEach(button => {
+    button.addEventListener('click', function () {
+        const applicationId = this.dataset.applicationId;
+        updateApplicationStatus(applicationId, 'approved');
+    });
+});
+
+document.querySelectorAll('.reject-button').forEach(button => {
+    button.addEventListener('click', function () {
+        const applicationId = this.dataset.applicationId;
+        updateApplicationStatus(applicationId, 'rejected');
+    });
+});
+
+</script>
 </body>
 </html>

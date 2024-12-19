@@ -45,8 +45,12 @@ $applications_result = $stmt->get_result();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
-
     <title>User Dashboard</title>
+    <style>
+        body {
+            background-color: var(--bs-primary-bg-subtle);
+        }
+    </style>
 </head>
 <body>
     <div class="container mt-5">
@@ -97,7 +101,7 @@ $applications_result = $stmt->get_result();
                 <label for="password" class="form-label">Password</label>
                 <input type="password" class="form-control" id="password" name="password" placeholder="Enter new password">
             </div>
-            <button type="submit" class="btn btn-success">Update Information</button>
+            <button type="submit" class="btn btn-primary">Update Information</button>
         </form>
     </div>
 

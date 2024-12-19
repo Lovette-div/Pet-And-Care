@@ -64,19 +64,19 @@
                                 <div class="carousel-item active">
                                     <img src="../PetAndCare/assets/images/1.jpg" class="d-block w-100" alt="Pet talking">
                                     <div class="carousel-caption">
-                                        <h5>Professional Dog Walking</h5>
-                                        <p>Keeping your pets active and happy</p>
+                                        <h5>Professional Pet Advice</h5>
+                                        <p>Keeping your pets active and healthy</p>
                                     </div>
                                 </div>
                                 <div class="carousel-item">
                                     <img src="../PetAndCare/assets/images/3.jpeg" class="d-block w-100" alt="Pet Grooming">
                                     <div class="carousel-caption">
-                                        <h5>Expert Pet Grooming</h5>
-                                        <p>Spa-like experience for your furry friends</p>
+                                        <h5>Expert Pet Adoption</h5>
+                                        <p>Get yourself ready to be a parent to your furry friend</p>
                                     </div>
                                 </div>
                                 <div class="carousel-item">
-                                    <img src="path/to/pet-sitting.jpg" class="d-block w-100" alt="Pet Sitting">
+                                    <img src="../PetAndCare/assets/images/13.jpeg" class="d-block w-100" alt="Pet Sitting">
                                     <div class="carousel-caption">
                                         <h5>Caring Pet Sitting</h5>
                                         <p>Trusted care when you're away</p>

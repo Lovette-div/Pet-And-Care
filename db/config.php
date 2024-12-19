@@ -1,8 +1,8 @@
 <?php
 $servername = 'localhost';
-$user = 'root';
-$password = '';
-$dbname = 'petandcare';
+$user = 'lovette.philips';
+$password = 'Luny@19.com';
+$dbname = 'webtech_fall2024_lovette_philips';
 
 
 
